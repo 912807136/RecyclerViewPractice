@@ -2,6 +2,7 @@ package com.nicerdata.recyclerview;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -29,8 +30,13 @@ public class MainActivity extends ActionBarActivity {
 
         mAdapter = new SimpleAdapter(this, mDatas);
         mRecyclerView.setAdapter(mAdapter);
+
+        //设置RecyclerView的布局管理
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(linearLayoutManager);
+
+        //设置RecyclerView的Item间的分割线
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL_LIST));
     }
 
     private void initViews() {

@@ -17,7 +17,6 @@ import java.util.List;
  */
 public class SimpleAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
-
     private LayoutInflater mInflater;
     private Context mContext;
     private List<String> mDatas;
@@ -53,10 +52,7 @@ public class SimpleAdapter extends RecyclerView.Adapter<MyViewHolder> {
     public int getItemCount() {
         return mDatas.size();
     }
-
-
 }
-
 
 class MyViewHolder extends ViewHolder {
 
