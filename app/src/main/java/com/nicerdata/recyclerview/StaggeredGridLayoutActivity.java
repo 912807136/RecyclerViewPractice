@@ -1,10 +1,8 @@
 package com.nicerdata.recyclerview;
 
-import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -15,12 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity {
+public class StaggeredGridLayoutActivity extends ActionBarActivity {
 
     //声明
     private RecyclerView mRecyclerView;
     private List<String> mDatas;
-    private SimpleAdapter mAdapter;
+    private StaggeredAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +29,11 @@ public class MainActivity extends ActionBarActivity {
         initDatas();
         initViews();
 
-        mAdapter = new SimpleAdapter(this, mDatas);
+        mAdapter = new StaggeredAdapter(this, mDatas);
         mRecyclerView.setAdapter(mAdapter);
 
         //设置RecyclerView的布局管理
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        mRecyclerView.setLayoutManager(linearLayoutManager);
-
-//        //设置RecyclerView的Item间的分割线(因为在item_single_textview的布局设置了margin=2dp分隔开了，方便查看效果，所以这里就可以隐藏了)
-//        mRecyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL_LIST));
+        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL));
     }
 
     private void initViews() {
@@ -72,23 +66,7 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        switch (id) {
-            case R.id.action_listview:
-                mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-                break;
-            case R.id.action_gridview:
-                mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
-                break;
-            case R.id.action_hor_gridview:
-                mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(5, StaggeredGridLayoutManager.HORIZONTAL));
-                break;
-            case R.id.action_staggered:
-                Intent intent = new Intent(this,StaggeredGridLayoutActivity.class);
-                startActivity(intent);
-                break;
-            default:
-                break;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }
