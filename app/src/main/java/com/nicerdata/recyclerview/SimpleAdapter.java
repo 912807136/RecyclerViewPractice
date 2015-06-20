@@ -52,6 +52,18 @@ public class SimpleAdapter extends RecyclerView.Adapter<MyViewHolder> {
     public int getItemCount() {
         return mDatas.size();
     }
+
+    public void addData(int pos) {
+        mDatas.add(pos,"Insert One");
+//        notifyDataSetChanged();
+        notifyItemInserted(pos);
+    }
+
+    public void deleteData(int pos) {
+        mDatas.remove(pos);
+        notifyItemRemoved(pos);
+    }
+
 }
 
 class MyViewHolder extends ViewHolder {
