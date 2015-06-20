@@ -3,6 +3,7 @@ package com.nicerdata.recyclerview;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
@@ -38,6 +39,7 @@ public class MainActivity extends ActionBarActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(linearLayoutManager);
 
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());//more的动画效果
 //        //设置RecyclerView的Item间的分割线(因为在item_single_textview的布局设置了margin=2dp分隔开了，方便查看效果，所以这里就可以隐藏了)
 //        mRecyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL_LIST));
     }
@@ -73,6 +75,13 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         switch (id) {
+
+            case R.id.action_add:
+                mAdapter.addData(1);
+                break;
+            case R.id.action_delete:
+                mAdapter.deleteData(1);
+                break;
             case R.id.action_listview:
                 mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
                 break;
