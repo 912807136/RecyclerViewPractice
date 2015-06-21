@@ -19,7 +19,19 @@ public class SimpleAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     private LayoutInflater mInflater;
     private Context mContext;
-    private List<String> mDatas;
+    protected List<String> mDatas;
+
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+
+        void onItemLongClick(View view, int position);
+    }
+
+    private OnItemClickListener mOnItemClickListener;
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.mOnItemClickListener = listener;
+    }
 
     //构造方法
     public SimpleAdapter(Context context, List<String> datas) {
@@ -44,8 +56,33 @@ public class SimpleAdapter extends RecyclerView.Adapter<MyViewHolder> {
     绑定ViewHolder的数据
      */
     @Override
-    public void onBindViewHolder(MyViewHolder myViewHolder, int pos) {
+    public void onBindViewHolder(final MyViewHolder myViewHolder, final int pos) {
         myViewHolder.tv.setText(mDatas.get(pos));
+
+        setUpitemEvent(myViewHolder);
+    }
+
+    protected void setUpitemEvent(final MyViewHolder myViewHolder) {
+
+        if (mOnItemClickListener != null) {
+            myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int layoutPosition = myViewHolder.getLayoutPosition();
+                    mOnItemClickListener.onItemClick(myViewHolder.itemView, layoutPosition);
+                }
+            });
+
+            //long click
+            myViewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int layoutPosition = myViewHolder.getLayoutPosition();
+                    mOnItemClickListener.onItemLongClick(myViewHolder.itemView, layoutPosition);
+                    return false;
+                }
+            });
+        }
     }
 
     @Override
@@ -54,7 +91,7 @@ public class SimpleAdapter extends RecyclerView.Adapter<MyViewHolder> {
     }
 
     public void addData(int pos) {
-        mDatas.add(pos,"Insert One");
+        mDatas.add(pos, "Insert One");
 //        notifyDataSetChanged();
         notifyItemInserted(pos);
     }
