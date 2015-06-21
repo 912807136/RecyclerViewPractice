@@ -21,6 +21,9 @@ public class SimpleAdapter extends RecyclerView.Adapter<MyViewHolder> {
     private Context mContext;
     private List<String> mDatas;
 
+    //20150621
+//    public interface onItemClick;
+
     //构造方法
     public SimpleAdapter(Context context, List<String> datas) {
         //成员变量进行赋值
