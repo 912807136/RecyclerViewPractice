@@ -2,12 +2,9 @@ package com.nicerdata.recyclerview;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +31,18 @@ public class StaggeredGridLayoutActivity extends ActionBarActivity {
 
         //设置RecyclerView的布局管理
         mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL));
+        mAdapter.setOnItemClickListener(new SimpleAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+//                mAdapter.deleteData(position);
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+                mAdapter.deleteData(position);
+            }
+        });
+
     }
 
     private void initViews() {
