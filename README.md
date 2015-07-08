@@ -7,3 +7,4 @@ My Android Demo for RecylerView
 ![自定义分割线](http://ww1.sinaimg.cn/mw690/a53846c3gw1et9nh8vvicg20a50h977w.gif)
 ==============================================================================================================================================================
 <br />![](http://ww4.sinaimg.cn/mw690/a53846c3gw1et9rwc9irbg20au0irtfs.gif)
+<br />![](http://ww3.sinaimg.cn/mw690/a53846c3gw1etagc3u2vzg20al0hzkb7.gif)
