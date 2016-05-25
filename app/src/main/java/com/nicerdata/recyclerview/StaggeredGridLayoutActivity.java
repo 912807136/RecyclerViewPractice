@@ -9,7 +9,6 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class StaggeredGridLayoutActivity extends ActionBarActivity {
 
     //声明
@@ -53,7 +52,7 @@ public class StaggeredGridLayoutActivity extends ActionBarActivity {
     private void initDatas() {
 
         //赋值
-        mDatas = new ArrayList<String>();
+        mDatas = new ArrayList<>();
 
         for (int i = 'A'; i <= 'z'; i++) {
             mDatas.add("" + (char) i);

@@ -6,10 +6,6 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Author IsayesHu
- * Date 2015/6/19.
- */
 public class StaggeredAdapter extends SimpleAdapter {
 
     private List<Integer> mHeights;
@@ -19,7 +15,7 @@ public class StaggeredAdapter extends SimpleAdapter {
         super(context, datas);
         //成员变量进行赋值
 
-        mHeights = new ArrayList<Integer>();
+        mHeights = new ArrayList<>();
         for (int i = 0; i < mDatas.size(); i++) {
             mHeights.add((int) (100 + Math.random() * 300));
         }

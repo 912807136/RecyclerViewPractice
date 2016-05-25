@@ -1,11 +1,10 @@
 package com.nicerdata.recyclerview;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     //声明
     private RecyclerView mRecyclerView;
@@ -45,6 +44,7 @@ public class MainActivity extends ActionBarActivity {
             public void onItemClick(View view, int position) {
                 Toast.makeText(MainActivity.this, "Click: " + position, Toast.LENGTH_SHORT).show();
             }
+
             @Override
             public void onItemLongClick(View view, int position) {
                 Toast.makeText(MainActivity.this, "LongClick: " + position, Toast.LENGTH_SHORT).show();
@@ -58,7 +58,7 @@ public class MainActivity extends ActionBarActivity {
 
     private void initDatas() {
         //赋值
-        mDatas = new ArrayList<String>();
+        mDatas = new ArrayList<>();
         for (int i = 'A'; i <= 'z'; i++) {
             mDatas.add("" + (char) i);
         }

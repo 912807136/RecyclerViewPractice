@@ -5,23 +5,23 @@
     <item
         android:id="@+id/action_listview"
         android:orderInCategory="100"
-        android:title="ListView"
+        android:title="列表"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_gridview"
         android:orderInCategory="100"
-        android:title="GridView"
+        android:title="网格"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_hor_gridview"
         android:orderInCategory="100"
-        android:title="HorizontalGridView"
+        android:title="横向网格"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_staggered"
         android:orderInCategory="100"
-        android:title="StaggeredGridView"
+        android:title="交错网格"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_add"
@@ -38,6 +38,6 @@
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
-        android:title="Settings"
+        android:title="设置"
         app:showAsAction="never" />
 </menu>
